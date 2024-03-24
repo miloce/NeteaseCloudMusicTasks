@@ -1,0 +1,335 @@
+{
+    /* 开源地址: https://github.com/miloce/NeteaseCloudMusicTasks */
+    "version": "2.21",
+    "sha": "commitId",
+    /* 多账号的配置详见 https://github.com/miloce/NeteaseCloudMusicTasks#%E5%A4%9A%E8%B4%A6%E5%8F%B7 */
+    "users": [
+        {
+            /* 填写手机号或邮箱 */
+            "username": "",
+            /* 如果使用非中国大陆的手机号登录则需填写 countrycode，其他情况都不用填写 */
+            "countrycode": "",
+            /* 填写密码或 32 位 md5 加密后的密码 */
+            "password": "",
+            /* 若都填写了账号密码和 cookie，会优先使用 cookie */
+            /* cookie 失效后才会使用账号密码登录 */
+            /* 填写方式详见 https://github.com/miloce/NeteaseCloudMusicTasks#%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81 */
+            "cookie": "",
+            /* 填写国内IP，否则可能会有无法登录等问题出现，多个账号最好设置不同的IP */
+            /* 可填写本机IP，查看方法：https://www.ip138.com/ 填写显示的ip即可 */
+            "X-Real-IP": "",
+            /* 是否运行该账号的任务 */
+            "enable": true
+        } 
+    ],
+    "setting": {
+        /* 推送 */
+        "push": {
+            "serverChan": {
+                "module": "serverChan",
+                /* 是否启用server酱微信推送 */
+                "enable": false,
+                /* 填写server酱旧版SCKEY或新版SendKey */
+                "KEY": "",
+                /* 是否将多个账号的信息合并推送 */
+                "merge": true
+            },
+            /* 官网 https://www.pushplus.plus */
+            "pushPlus": {
+                "module": "pushPlus",
+                /* 是否启用pushplus微信推送 */
+                "enable": false,
+                /* pushplus的token */
+                "pushToken": "",
+                /* 消息模板:  markdown | html | txt | json */
+                "template": "markdown",
+                /* 群组编码，为空时发给自己 */
+                "topic": "",
+                /* 是否将多个账号的信息合并推送 */
+                "merge": true
+            },
+            "CoolPush": {
+                "module": "CoolPush",
+                /* 是否启用酷推推送 */
+                "enable": false,
+                /* 推送方式: send QQ号私人推送 | group QQ群推送 | wx 微信推送 | email 邮件推送 */
+                "method": "send",
+                /* 酷推Skey */
+                "Skey": "",
+                /* 是否将多个账号的信息合并推送 */
+                "merge": true
+            },
+            "WeCom": {
+                "module": "WeCom",
+                /* 是否启用企业微信推送 */
+                "enable": false,
+                /* 企业ID，登录企业微信后在管理后台“我的企业”－“企业信息”下查看 */
+                "corpid": "",
+                /* 应用ID，在“应用管理”里，点进相应的应用可查看 */
+                "agentid": "",
+                /* 应用密钥，在“应用管理”里，点进相应的应用可查看 */
+                "secret": "",
+                /* 要推送的人的用户ID，每个成员都有唯一的userid，即所谓“帐号”。在管理后台->“通讯录”->点进某个成员的详情页，可以看到。默认为"@all"，向该企业应用的全部成员发送 */
+                /* 若该企业应用有多个成员，请将id改为自己的id，如“ZhangSan”，以免其他成员也收到消息 */
+                "userid": "@all",
+                /* 消息类型：text 文本消息(微信、企业微信里均可查看) | textcard 文本卡片消息(微信、企业微信里均可查看) | markdown markdown消息(只能在企业微信里查看)  */
+                "msgtype": "text",
+                /* 是否将多个账号的信息合并推送 */
+                "merge": false
+            },
+            "Telegram": {
+                "module": "Telegram",
+                /* 是否启用Telegram推送 */
+                "enable": false,
+                /* 自定义域名，放空则默认为 https://api.telegram.org */
+                "server": "",
+                /* Telegram账号ID */
+                "userId": "",
+                /* TG机器人token */
+                "botToken": "",
+                /* 是否将多个账号的信息合并推送 */
+                "merge": true
+            },
+            "Bark": {
+                /* 项目地址： https://github.com/Finb/Bark */
+                "module": "Bark",
+                /* 是否启用Bark推送 */
+                "enable": false,
+                /* Bark的地址 */
+                "Bark_url": "",
+                /* Bark的API key */
+                "Bark_key": "",
+                /* 是否将多个账号的信息合并推送, 建议为false，iOS推送消息过长可能会失败 */
+                "merge": false
+            },
+            /* https://github.com/easychen/pushdeer */
+            "pushdeer": {
+                "module": "pushdeer",
+                /* 是否启用推送 */
+                "enable": false,
+                /* 服务器地址，放空则使用官方服务器: https://api2.pushdeer.com */
+                "server": "",
+                /* pushkey */
+                "pushkey": "",
+                /* 是否将多个账号的信息合并推送 */
+                "merge": false
+            }
+        },
+        /* 签到 */
+        "sign": true,
+        /* 云贝任务，任务列表中有如下的任务时才触发 */
+        "yunbei_task": {
+            /* 分享歌单 */
+            "162005": {
+                "taskName": "发布动态",
+                "module": "publishEvent",
+                /* 是否开启任务 */
+                "enable": false,
+                /* 自定义要分享的歌单id，用逗号隔开，分享时随机选取一个，若为空，则从每日推荐歌单中随机选取 */
+                "id": [],
+                /* 自定义动态内容，用逗号隔开，分享时随机选取一个 */
+                "msg": [
+                    "每日分享",
+                    "今日分享",
+                    "分享歌单"
+                ],
+                /* 分享成功后是否自动删除该动态 */
+                "delete": true
+            },
+            /* 访问云音乐商城 */
+            "216002": {
+                "taskName": "访问云音乐商城",
+                "module": "visitMall",
+                /* 是否开启任务 */
+                "enable": true
+            },
+            /* 云贝推歌 */
+            "200002": {
+                "taskName": "云贝推歌",
+                "module": "rcmdSong",
+                /* 是否开启任务 */
+                "enable": false,
+                /* 要推荐的歌曲id，随机选取一个，如[65528, 64634] */
+                "songId": [],
+                /* 推荐的云贝数量 */
+                "yunbeiNum": 10,
+                /* 推荐理由，随机选取一个*/
+                "reason": [
+                    "有些美好会迟到，但音乐能带你找到",
+                    "希望找到和我一样喜欢这首歌的朋友",
+                    "人间好声音，推荐给你听"
+                ]
+            },
+            /* 发布Mlog：根据填写的歌曲ID，自动下载歌曲的专辑图，并上传 */
+            "162006": {
+                "taskName": "发布Mlog",
+                "module": "publishMlog",
+                /* 是否开启任务 */
+                "enable": false,
+                /* 填写歌曲id，随机选取一个，如[65528, 64634] */
+                "songId": [],
+                /* 动态内容，随机选取一个，其中$artist会被替换为歌手名，$song会被替换为歌曲名 */
+                "text": [
+                    "分享$artist的歌曲: $song",
+                    "分享歌曲: $song"
+                ],
+                /* 图片大小，越大则消耗的外网出流量越多 */
+                "size": 500,
+                /* 发布成功后是否自动删除该动态 */
+                "delete": true
+            },
+            "166000": {
+                "taskName": "分享歌曲/歌单",
+                "module": "share",
+                /* 是否开启任务 */
+                "enable": false
+            },
+            /* 浏览会员中心 */
+            "656007": {
+                "taskName": "浏览会员中心",
+                "module": "visitVipCenter",
+                /* 是否开启任务 */
+                "enable": false
+            }
+        },
+        /* 音乐人任务，登录音乐人中心默认开启，其他按需开启 */
+        "musician_task": {
+            /* 登录音乐人中心 */
+            "749006": {
+                "taskName": "音乐人中心签到",
+                "module": "musicianSignin",
+                "enable": true
+            },
+            /* 发布3条动态 */
+            "740004": {
+                "taskName": "发布动态",
+                "module": "publishEvent",
+                "enable": false,
+                /* 自定义要分享的歌单id，用逗号隔开，分享时随机选取一个，若为空，则从每日推荐歌单中随机选取 */
+                "id": [],
+                /* 自定义动态内容，用逗号隔开，分享时随机选取一个 */
+                "msg": [
+                    "每日分享",
+                    "今日分享",
+                    "分享歌单"
+                ],
+                /* 发布后自动删除 */
+                "delete": true
+            },
+            "755000": {
+                "taskName": "发布主创说",
+                "module": "publishComment",
+                "enable": false,
+                /* []内填写你自己歌曲的id，如有多首用,隔开，随机挑选一首 */
+                "id": [],
+                /* []内填写要发布的内容，如有多个用,隔开，随机挑选一个 */
+                "msg": [
+                    "感谢大家收听"
+                ],
+                /* 发布后自动删除 */
+                "delete": true
+            },
+            "732004": {
+                "taskName": "回复粉丝评论",
+                "module": "replyComment",
+                "enable": false,
+                /* []内填写你自己歌曲的id，如有多首用,隔开，随机挑选一首 */
+                "id": [],
+                /* []内填写要回复的内容，如有多个用,隔开，随机挑选一个 */
+                "msg": [
+                    "感谢收听"
+                ],
+                /* 发布后自动删除 */
+                "delete": true
+            },
+            "755001": {
+                "taskName": "回复粉丝私信",
+                "module": "sendPrivateMsg",
+                "enable": false,
+                /* []内填写粉丝的用户id，如有多个用,隔开，随机挑选一个进行回复 */
+                "id": [],
+                /* []内填写要回复的内容，如有多个用,隔开，随机挑选一个 */
+                "msg": [
+                    "你好"
+                ]
+            },
+            "739008": {
+                "taskName": "观看课程",
+                "module": "watchCollegeLesson",
+                "enable": false
+            },
+            "740005": {
+                "taskName": "访问自己的云圈",
+                "module": "visitMyCircle",
+                "enable": false,
+                /* 自己的云圈ID，可不填写，如果提示 resourceID 获取失败，则需要手动填写 */
+                /* 获取方式: 云圈右上角分享，链接中 circleId= 后得参数即为云圈 id */
+                "circleId": ""
+            },
+            /* 发布Mlog：根据填写的歌曲ID，自动下载歌曲的专辑图，并上传 */
+            "744005": {
+                "taskName": "发布mlog",
+                "module": "publishMlog",
+                /* 是否开启任务 */
+                "enable": false,
+                /* 填写歌曲id，随机选取一个，如[65528, 64634] */
+                "songId": [],
+                /* 动态内容，随机选取一个，其中$artist会被替换为歌手名，$song会被替换为歌曲名 */
+                "text": [
+                    "分享$artist的歌曲: $song",
+                    "分享歌曲: $song"
+                ],
+                /* 图片大小，越大则消耗的外网出流量越多 */
+                "size": 500,
+                /* 发布成功后是否自动删除该动态 */
+                "delete": true
+            }
+        },
+        /* VIP 成长值任务 */
+        "vip_task": {
+            "816": {
+                "taskName": "创建共享歌单",
+                "module": "createSharedPlaylist",
+                "enable": false,
+                /* 自定义歌单名，用逗号隔开，随机选取一个 */
+                "name": [
+                    "歌单",
+                    "我的歌单"
+                ],
+                /* 创建成功后是否自动删除该动态 */
+                "delete": true                
+            }
+        },
+        /* 打卡刷歌 */
+        "daka": {
+            /* 是否开启任务 */
+            "enable": false,
+            /* 满级时自动停止 */
+            "full_stop": true,
+            /* 是否开启自动打卡，该模式下song_number和sleep_time参数将失效 */
+            "auto": true,
+            /* 对打卡误差的容忍度，在自动打卡模式下有效 */
+            /* 0表示必须要达到300首才停止打卡，10表示达到290首就可以停止打卡 */
+            /* 可以设置为10左右，避免因为误差导致不停打卡 */
+            "tolerance": 10,
+            /* 歌曲数 */
+            "song_number": 300,
+            /* 休眠时间 */
+            "sleep_time": 10,
+            "upload_num": 300
+        },
+        /* 其他任务 */
+        "other": {
+            /* 刷歌单中歌曲的播放次数，用来改变听歌风格，仅在需要时使用 */
+            "play_playlists": {
+                "enable": false,
+                /* 歌单id,用逗号隔开,如 [5279371062,5279377564] */
+                "playlist_ids": [],
+                /* 播放次数 */
+                "times": 1
+            }
+        },
+        /* 在网易云音乐中关注作者 */
+        "follow": true
+    }
+}
